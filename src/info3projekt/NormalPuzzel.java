@@ -2,16 +2,23 @@ package info3projekt;
 
 import java.util.Scanner;
 
+/* Normal puzzle class for puzzles,extends the abstract class Puzzel.
+ * Contains methods to generate and solve puzzles.
+ */
 public class NormalPuzzel extends Puzzel {
-
     private double solutionMath = 0;
     private int a, b;
 
+    /* Constructor for NormalPuzzel */
     public NormalPuzzel(int puzzelTyp) {
         this.puzzelTyp = puzzelTyp;
         whatPuzzel();
     }
 
+    /*
+     * Method to generate random math problems based on the type of math operation
+     */
+    // 1 = addition, 2 = subtraction, 3 = multiplication
     public double randomMathNummbers(int whatMath) {
         a = (int) (Math.random() * 10) + 1; // Random number between 1 and 10
         b = (int) (Math.random() * 10) + 1; // Random number between 1 and 10
@@ -28,14 +35,16 @@ public class NormalPuzzel extends Puzzel {
                 puzzelInfo = "what is " + a + " * " + b + "?";
                 solutionMath = a * b;
                 break;
-            case 4:
-                puzzelInfo = "what is " + a + " / " + b + "?";
-                solutionMath = (double) a / b;
-                break;
         }
         return solutionMath;
     }
 
+    /*
+     * Method to determine the type of puzzle
+     * This method sets the puzzle information based on the puzzle type.
+     * and sets the solution for the puzzle. if the puzzel is a math random one it
+     * also creates the math problem.
+     */
     @Override
     public void whatPuzzel() {
         switch (puzzelTyp) {
@@ -88,9 +97,6 @@ public class NormalPuzzel extends Puzzel {
             case 13:
                 randomMathNummbers(3);
                 break;
-            case 14:
-                randomMathNummbers(4);
-                break;
             case -1:
                 // if the room is empty/ no puzzel
                 puzzelInfo = "here is no puzzel to slove";
@@ -109,6 +115,18 @@ public class NormalPuzzel extends Puzzel {
         }
     }
 
+    /*
+     * Method to solve the puzzle
+     * This method prompts the user for input, checks if the input is a valid
+     * number,
+     * and compares it to the solution. If correct, it marks the puzzle as solved.
+     * If the input is incorrect, it calls the wrongAnz method to handle the
+     * failure.
+     * 
+     * @param scanner Scanner object to read user input
+     * 
+     * @return true if the puzzle is solved correctly, false otherwise
+     */
     @Override
     public boolean solve(Scanner scanner) {
         System.out.println(puzzelInfo);
@@ -130,16 +148,24 @@ public class NormalPuzzel extends Puzzel {
         }
     }
 
+    /*
+     * Method to reroll the puzzle
+     * This method generates a new random puzzle type and calls whatPuzzel to set
+     * the new puzzle information.
+     * but with bad luck it can reroll to the same puzzle type.
+     */
     public void rerollPuzzel() {
-        double randomValue = Math.random() * 14;
+        double randomValue = Math.random() * 13 + 1;
         puzzelTyp = (int) randomValue;
         whatPuzzel();
     }
 
+    /* Method to get the puzzle information */
     public String getPuzzle() {
         return puzzelInfo;
     }
 
+    /* Method to get the solution of the puzzle */
     @Override
     Object getSolution() {
         return solutionMath;

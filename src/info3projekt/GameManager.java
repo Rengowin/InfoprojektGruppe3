@@ -18,23 +18,12 @@ public class GameManager {
     private Items[] items; // to give later all the items to room/commands
     private Commands commands = new Commands(this);
     private int[] itemEffects;
-
-    // not good code since later levels could be more then 10 rooms and items
-    // but we are uncreativ :D, and thats why it is ok for now
-    // and hopefully Zhang is fine with that :P
-
     // itemNames and descriptions could be removed and be put into the Items class
     // since we conclouded that we dont want to give ever item a unique name and
-    // description
-    private String[] itemNames = { "item 1", "item 2", "item 3", "item 4", "item 5", "item 6", "item 7", "item 8",
-            "item 9", "item 10" };
-    private String[] itemDescriptions = { "description 1", "description 2", "description 3", "description 4",
-            "description 5", "description 6", "description 7", "description 8", "description 9", "description 10" };
-    private String[] roomNames = { "Room 1", "Room 2", "Room 3", "Room 4", "Room 5",
-            "Room 6", "Room 7", "Room 8", "Room 9", "Room 10" };
-    private String[] roomTexts = { "Text for Room 1", "Text for Room 2", "Text for Room 3", "Text for Room 4",
-            "Text for Room 5", "Text for Room 6", "Text for Room 7", "Text for Room 8", "Text for Room 9",
-            "Text for Room 10" };
+    // description, item descriptions also got removed because of this
+    private String[] itemNames;
+    private String[] roomNames;
+    private String[] roomTexts;
 
     /* Getter for Commands */
     public Commands classCommandsGet() {
@@ -114,8 +103,32 @@ public class GameManager {
                     int[] puzzelValues = { 1, 11, 13, 4, -1, 11, 7, 8, 12, 1 };
                     String[] itemNames = { "BuzzelBreaker", "HP", "Reroll", "noItem", "BuzzelBreaker",
                             "HP", "Reroll", "noItem", "BuzzelBreaker", "HP" };
-                    String[] roomNames = { "Room 1", "Room 2", "Room 3", "Room 4", "Room 5",
-                            "Room 6", "Room 7", "Room 8", "Room 9", "Room 10" };
+                    String[] roomNames = {
+                            "Steam Locomotive",
+                            "Coal Tender",
+                            "Baggage Car",
+                            "First Class",
+                            "Dining Car",
+                            "Second Class",
+                            "Third Class",
+                            "Mail Car",
+                            "Brake Van",
+                            "Observation Car"
+                    };
+                    String[] roomTexts = {
+                            "At the front, with a chimney. Pulls the entire train.",
+                            "Directly behind the locomotive. Transports water and coal for the steam locomotive.",
+                            "For luggage, bicycles, sometimes animals or mail.",
+                            "Individual compartments, padded seats, carpet, wood paneling.",
+                            "Table settings, kitchen, waiters with trays.",
+                            "Simpler compartments, usually with 6 seats.",
+                            "Wooden seats or benches, open seating, no compartments.",
+                            "Mail sorting during travel.",
+                            "With sleeping berths or beds, used in night trains.",
+                            "Luxury compartment, e.g., for wealthy travelers, often private.",
+                            "Used for manual braking and as a control post at the end of the train.",
+                            "Glass car at the end of the train for panoramic views during travel."
+                    };
                     // loop to create puzzles and items
                     for (int i = 0; i < puzzel.length; i++) {
                         puzzel[i] = (i == puzzel.length - 1)
@@ -126,18 +139,36 @@ public class GameManager {
                     wrongAnz = true;
                     break;
                 case 2:
-                    roomNames = new String[] { "entrance building B", "green Space", "building C", "etage 5", "Room 5",
-                            "Room 6", "Room 7", "Room 8", "Room 9", "Room 10" };
-                    roomTexts = new String[] { "You are at the entrance of building B.",
-                            "You are in the green space.", "You are in building C.", "You are on the 5th floor.",
-                            "You are in Room 5.", "You are in Room 6.", "You are in Room 7.", "You are in Room 8.",
-                            "You are in Room 9.", "You are in Room 10." };
+                    roomNames = new String[] {
+                            "Entrance HTW B",
+                            "Porter",
+                            "Green Space",
+                            "Building C",
+                            "C: Floor 0",
+                            "C: Floor 3 Room: 340",
+                            "C: Floor 5 Room: 579",
+                            "GreenBear",
+                            "Building G",
+                            "Cafeteria"
+                    };
+                    roomTexts = new String[] {
+                            "You are standing at the entrance to Building B.",
+                            "You walk past the porter.",
+                            "The HTW green space where students play volleyball.",
+                            "Do you go to the lecture (north) or head to the cafeteria (south)?",
+                            "You enter the building and head to an elevator.",
+                            "You attend the Info lecture by Mr. Zhang.",
+                            "You attend the Info lab session.",
+                            "You head towards the cafeteria and pass the HTW Motorsport Team (greenBear).",
+                            "You enter Building G.",
+                            "You enter the cafeteria."
+                    };
                     itemNames = new String[] { "BuzzelBreaker", "HP", "Reroll", "noItem", "BuzzelBreaker",
                             "HP", "Reroll", "noItem", "BuzzelBreaker", "HP" };
                     puzzel = new Puzzel[10];
                     items = new Items[10];
                     level = new Level(3, 10, items, puzzel, "HTW WH street entrance + Building C and H", this);
-                    puzzelValues = new int[] { 6, 3, 11, 14, 5, -1, 9, 3, -1, 2 };
+                    puzzelValues = new int[] { 6, 3, 11, 12, 5, -1, 9, 3, -1, 2 };
                     itemEffects = new int[] { 1, 2, 3, -1, 1, 2, 3, -1, 1, 2 };
                     for (int i = 0; i < puzzel.length; i++) {
                         puzzel[i] = (i == puzzel.length - 1)

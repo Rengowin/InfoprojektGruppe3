@@ -4,6 +4,7 @@ package info3projekt;
  * It interacts with the GameManager to perform actions like moving, looking around,
  * picking up items, using items, and solving puzzles.
  */
+/* probably also a bad code example since you could like the item class or level class creating subclasses that manage their own commands */
 public class Commands {
     private GameManager gameManager;
 
@@ -59,6 +60,11 @@ public class Commands {
                  */
                 int currentRoom = gameManager.getPlayer().getCurrentRoom();
                 Puzzel[] puzzel = gameManager.getPuzzel();
+                // checks if cheats are allowed :D, final room is not allowed ^^
+                if (currentRoom >= puzzel.length) {
+                    System.out.println("Invalid room number for cheating.");
+                    return;
+                }
                 puzzel[currentRoom].setPuzzelTyp(-3);
                 currentRoom = currentRoom + 1; // Adjust for 1-based room numbering in output
                 System.out.println("Cheat activated: Puzzel in room " + currentRoom + " is now solved.");

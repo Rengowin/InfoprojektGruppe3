@@ -1,0 +1,31 @@
+bei allen räumen außer beim finalen Raum "Observation Car" und "Cafeteria" kann der befehl "cheat" genutzt werden
+
+Level 1 solutions:
+{ 1, 11, 13, 4, -1, 11, 7, 8, 12, 1 }
+"Steam Locomotive": 1
+"Coal Tender": random math addition
+"Baggage Car": random math multiplication
+"First Class": 2
+"Dining Car": no puzzel
+"Second Class": random math addition
+"Third Class": 4
+"Mail Car": 11
+"Brake Van": random math subtraction
+FinalesPuzzel "Observation Car": 1. The letter M
+                                 2. The players name
+                                 3. hole
+
+Level 2 solutions:
+{ 6, 3, 11, 12, 5, -1, 9, 3, -1, 2 };
+"Entrance HTW B": 32
+"Porter": 11
+"Green Space": random math addition
+"Building C": random math subtraction
+"C: Floor 0": 1800
+"C: Floor 3 Room: 340": no puzzel
+"C: Floor 5 Room: 579": 5
+"GreenBear": 11
+"Building G": no puzzel
+FinalesPuzzel "Cafeteria": 1. Rain
+                           2. Teapot
+                           3. Egg

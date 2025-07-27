@@ -1,43 +1,62 @@
 package info3projekt;
 
 import java.util.Scanner;
+/* This class represents the final puzzle in the game and extends the Puzzel class. 
+ * it contains the puzzels that the player must solve to win
+ * and the solutions to those puzzles.
+*/
 
 public class FinalPuzzel extends Puzzel {
 
     private String[] puzzelInfos = new String[3];
     private Object[] solutions = new Object[3]; // Can be String or Double
 
+    /* Constructor for the FinalPuzzel class */
     public FinalPuzzel(int puzzelTyp) {
         this.puzzelTyp = puzzelTyp;
         whatPuzzel();
     }
 
-    // Boss has 3 puzzles that need to be solved and puzzelTyp is used for the
-    // differnt levels of the game
+    /*
+     * This method sets the puzzle information and solutions based on the puzzle
+     * type it could have more then 3 puzzles, but for now it has only 3 puzzels
+     * and the solutions are right now only Strings, but could be all other types
+     * from oject
+     * like Double, Integer, etc.
+     */
+    /*
+     * bad code example for clean code :D
+     * since we could again create subclasses for the different puzzels
+     */
     @Override
     void whatPuzzel() {
         switch (puzzelTyp) {
             case 1:
-                puzzelInfos[0] = "Type A";
-                solutions[0] = "A";
-                puzzelInfos[1] = "Type B";
-                solutions[1] = "B";
-                puzzelInfos[2] = "Type C";
-                solutions[2] = "C";
+                puzzelInfos[0] = "What comes once in a minute, twice in a moment, but never in a thousand years? Hint: 3 Strings";
+                solutions[0] = "The letter M";
+                puzzelInfos[1] = "I belong to you, but others use me more. What am I?";
+                solutions[1] = gameManager.getPlayer().getName();
+                puzzelInfos[2] = "The more you take away, the bigger I get. What am I?";
+                solutions[2] = "hole";
                 break;
             case 2:
-                puzzelInfos[0] = "Type A";
-                solutions[0] = "A";
-                puzzelInfos[1] = "Type B";
-                solutions[1] = "B";
-                puzzelInfos[2] = "Type C";
-                solutions[2] = "C";
+                puzzelInfos[0] = "What comes down but never goes up?";
+                solutions[0] = "Rain";
+                puzzelInfos[1] = "What begins with T, ends with T, and has T inside it?";
+                solutions[1] = "teapot";
+                puzzelInfos[2] = "What has to be broken before you can use it?";
+                solutions[2] = "egg";
                 break;
             default:
                 break;
         }
     }
 
+    /*
+     * This method is called to solve the puzzles
+     * It takes a Scanner object as input to read the player's answers.
+     * you need to solve all in one go or restart the solving process
+     */
     @Override
     boolean solve(Scanner scanner) {
         for (int i = 0; i < puzzelInfos.length; i++) {
@@ -74,6 +93,7 @@ public class FinalPuzzel extends Puzzel {
         return true;
     }
 
+    /* to prevent getting the solution directly from an item */
     @Override
     Object getSolution() {
         // Return the solutions for the puzzles

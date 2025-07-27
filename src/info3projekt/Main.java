@@ -3,12 +3,20 @@ package info3projekt;
 
 import java.util.Scanner;
 
+/*
+ * Main class for the game loop.
+ * and to start the game.
+ */
 public class Main {
 
     public static void main(String[] args) {
         gameloop();
     }
 
+    /**
+     * The main game loop.
+     * It initializes the game and processes user input.
+     */
     static void gameloop() {
         Scanner scanner = new Scanner(System.in);
         GameManager gameManager = new GameManager();
