@@ -1,0 +1,9 @@
+How to Start the game.
+Go into the Main.java file and run the program.
+you can choose between two levels.
+Level 1 is a simple linear level and represents a train.
+Level 2 is more complex with one branching path and represents the HTW WH building c and the cafeteria.
+
+Note:
+All classes should be in the package info3projekt.
+all classes gotten comments and some got also whats bad about some of they code. :D
