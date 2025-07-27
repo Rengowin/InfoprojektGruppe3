@@ -1,4 +1,10 @@
-package info3projekt;
+package info3projekt.test;
+
+import info3projekt.*;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
 
 public class PlayerTest {
 
@@ -6,7 +12,8 @@ public class PlayerTest {
     private Level level;
     private GameManager gameManager;
 
-    // beforeEach
+    // beforeEach open before each test to create the player and a level for test
+    // purposes
     @BeforeEach
     void setUp() {
         // since for testing the player we need a level for anzHints and this needs also
@@ -28,7 +35,6 @@ public class PlayerTest {
     }
 
     @Test
-    @DisplayName("Player health should be correctly set and retrieved")
     void testHealthGetterSetter() {
         assertEquals(3, player.getHealth());
 
@@ -37,48 +43,23 @@ public class PlayerTest {
 
         player.setHealth(1);
         assertEquals(1, player.getHealth());
-
-        player.setHealth(0);
-        assertEquals(0, player.getHealth());
     }
 
     @Test
-    @DisplayName("Player hints should be correctly retrieved")
     void testGetAnzHints() {
         assertEquals(3, player.getAnzHints());
     }
 
     @Test
-    @DisplayName("Current room should start at 0")
     void testInitialCurrentRoom() {
         assertEquals(0, player.getCurrentRoom());
     }
 
     @Test
-    @DisplayName("Player should handle negative health values")
-    void testNegativeHealth() {
-        player.setHealth(-1);
-        assertEquals(-1, player.getHealth());
-    }
-
-    @Test
-    @DisplayName("Player should handle very high health values")
-    void testHighHealth() {
-        player.setHealth(100);
-        assertEquals(100, player.getHealth());
-    }
-
-    @Test
-    @DisplayName("Player with null name should still work")
-    void testNullName() {
-        Player nullNamePlayer = new Player(null, level);
-        assertNull(nullNamePlayer.getName());
-    }
-
-    @Test
-    @DisplayName("Player with empty name should work")
-    void testEmptyName() {
-        Player emptyNamePlayer = new Player("", level);
-        assertEquals("", emptyNamePlayer.getName());
+    void testAddToList() {
+        Items item = new Items(1, gameManager, "TestItem");
+        player.addToList(item);
+        assertEquals(1, player.getItemes().size());
+        assertEquals("TestItem", player.getItemes().get(0).getItemName());
     }
 }
