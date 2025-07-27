@@ -10,6 +10,10 @@ Level 2 is more complex with one branching path and represents the HTW WH buildi
 Note:
 All classes should be in the package info3projekt.
 all classes gotten comments and some got also whats bad about some of they code. :D
+And creating text on code you allready have is not the best idea since i dont know what we could test here.
+And what classes are should be tested.
+
+Test are in the test folder.
 
 Spoiler!!!!:
 

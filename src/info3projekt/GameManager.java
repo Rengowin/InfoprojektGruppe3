@@ -25,6 +25,11 @@ public class GameManager {
     private String[] roomNames;
     private String[] roomTexts;
 
+    /* setter for Player for testing purposes */
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     /* Getter for Commands */
     public Commands classCommandsGet() {
         return commands;

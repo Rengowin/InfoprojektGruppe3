@@ -167,7 +167,7 @@ public class NormalPuzzel extends Puzzel {
 
     /* Method to get the solution of the puzzle */
     @Override
-    Object getSolution() {
+    public Object getSolution() {
         return solutionMath;
     }
 

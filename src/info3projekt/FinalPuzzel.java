@@ -95,7 +95,7 @@ public class FinalPuzzel extends Puzzel {
 
     /* to prevent getting the solution directly from an item */
     @Override
-    Object getSolution() {
+    public Object getSolution() {
         // Return the solutions for the puzzles
         return "no way to get the solution from the FinalPuzzel :D";
     }

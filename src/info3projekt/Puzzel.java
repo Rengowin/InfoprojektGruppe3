@@ -66,5 +66,5 @@ public abstract class Puzzel {
     }
 
     /* Returns the solution of the puzzle */
-    abstract Object getSolution();
+    abstract public Object getSolution();
 }
